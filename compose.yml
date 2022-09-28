@@ -1,0 +1,38 @@
+version: '3.1'
+
+services:
+
+  postgres:
+    image: postgres
+    restart: always
+    expose:
+      - 5432
+    ports:
+      - 5432:5432
+    volumes:
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+    environment:
+      - POSTGRES_PASSWORD=jass
+      - POSTGRES_USER=jass
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8282:8080
+
+# APP
+  scraper:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: scraper
+    volumes:
+      - ./image:/app/image
+    ports:
+      - 1902:1902
+    restart: always
+    depends_on:
+      - postgres
+volumes:
+  postgres-data:
