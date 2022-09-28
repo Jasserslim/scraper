@@ -12,7 +12,8 @@ Of course you need to have docker installed in your machine in order to run this
 ```sh
 docker-compose -f compose.yml up -d
 ```
-![Deployment](./images/container.PNG)(./images/images.PNG)
+![Deployment](./images/container.PNG)
+![Deployment](./images/images.PNG)
 
 ## Usage
 In order to interact with the api I used postman to send requests 
@@ -24,18 +25,18 @@ Request body:
 
 }
 ```
-![Postman Example](./image/postman.PNG)
+![Postman Example](./images/postman.PNG)
 
 ## Run tests
 I created two unit tests: one to assert that the request is successful and the other to verify the communication with the database and types of returned data.
 ```sh
 pytest
 ```
-![FastAPI Tests](./image/test.PNG)
+![FastAPI Tests](./images/test.PNG)
 
 ## choice of DataBase
 I used postgres for this purpose.
 
 ## visualisation of database
 You can find the schema of the database in database.sql
-![Database](./image/adminer.PNG)
+![Database](./images/adminer.PNG)
